@@ -1,9 +1,8 @@
 FROM httpd:2.4-alpine
 
-RUN yum update -y && \
-    yum install -y wget*
+RUN apk update && \
+    apk add --no-cache wget unzip
 
-# Copy project files into Apache document root
 RUN rm -rf /usr/local/apache2/htdocs/*
 
 RUN wget https://github.com/Chaveen123/Personal_Portfolio/archive/refs/heads/main.zip && \
